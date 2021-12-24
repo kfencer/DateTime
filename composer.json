@@ -1,6 +1,6 @@
 {
     "name": "kfencer/date-time",
-    "type": "symfony-bundle",
+    "version": "1.0.0",
     "description": "Date & time library",
     "keywords": ["date", "datetime", "time", "dateinterval", "timeinterval", "interval"],
     "homepage": "https://github.com/kfencer",
@@ -9,18 +9,33 @@
         {
             "name": "Alexey Khokhlov",
             "email": "owlet@docfile.org",
-            "homepage": "https://github.com/kfencer"
+            "homepage": "https://github.com/kfencer",
+            "role": "Developer"
         }
     ],
+    "support": {
+        "email": "owlet@docfile.org"
+    },
     "require": {
         "php": ">=7.4"
     },
     "require-dev": {
-        "phpunit/phpunit": ">=4.0,<6.0"
+        "phpunit/phpunit": "^8.5"
     },
     "autoload": {
         "psr-4": {
-            "KFencer\\": "./src"
+            "KFencer\\DateTime\\": "src/DateTime"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KFencer\\Tests\\DateTime\\": "tests/DateTime"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@phpunit"
+        ],
+        "phpunit": "phpunit"
     }
 }

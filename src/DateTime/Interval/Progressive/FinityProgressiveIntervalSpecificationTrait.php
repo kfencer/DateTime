@@ -9,7 +9,7 @@ trait FinityProgressiveIntervalSpecificationTrait
      */
     public function getNextPoint(int $requestedPointNumber = null, \DateTimeImmutable $prevPoint = null): ?\DateTimeImmutable
     {
-        if (!$requestedPointNumber < 1 || $requestedPointNumber > 1 && !$prevPoint) {
+        if ($requestedPointNumber < 1 || $requestedPointNumber > 1 && $prevPoint === null) {
             throw new \InvalidArgumentException();
         }
 
@@ -17,9 +17,9 @@ trait FinityProgressiveIntervalSpecificationTrait
             return new \DateTimeImmutable();
         }
 
-        $interval = $this->getIntervals()[$requestedPointNumber - 1] ?? null;
+        $interval = $this->getIntervals()[$requestedPointNumber - 2] ?? null;
 
-        if ($interval) {
+        if ($interval !== null) {
             $seconds = floor($interval / 1000);
             $milliseconds = $interval - $seconds;
 
