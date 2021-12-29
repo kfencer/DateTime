@@ -13,10 +13,6 @@ trait FinityProgressiveIntervalSpecificationTrait
             throw new \InvalidArgumentException();
         }
 
-        if ($requestedPointNumber === 1) {
-            return new \DateTimeImmutable();
-        }
-
         $interval = $this->getIntervals()[$requestedPointNumber - 1] ?? null;
 
         if ($interval !== null) {
@@ -25,6 +21,10 @@ trait FinityProgressiveIntervalSpecificationTrait
 
             $dateTimeInterval = new \DateInterval("PT{$seconds}S");
             $dateTimeInterval->f = $milliseconds;
+
+            if ($requestedPointNumber === 1) {
+                $prevPoint = new \DateTimeImmutable();
+            }
 
             return $prevPoint->add($dateTimeInterval);
         }
