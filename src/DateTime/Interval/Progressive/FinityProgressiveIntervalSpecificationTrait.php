@@ -20,7 +20,7 @@ trait FinityProgressiveIntervalSpecificationTrait
         $interval = $this->getIntervals()[$requestedPointNumber - 1] ?? null;
 
         if ($interval !== null) {
-            $seconds = floor($interval / 1000);
+            $seconds = floor($interval);
             $milliseconds = $interval - $seconds;
 
             $dateTimeInterval = new \DateInterval("PT{$seconds}S");
