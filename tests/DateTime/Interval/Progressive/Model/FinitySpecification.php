@@ -9,10 +9,9 @@ class FinitySpecification implements Progressive\FinityProgressiveIntervalSpecif
     use Progressive\FinityProgressiveIntervalSpecificationTrait;
 
     protected const INTERVALS = [
-        0,
         0.000001,
-        0.000001,
-        2.000001,
+        0.000004,
+        2.000007,
         23 * 60 * 60 + 0.000020
     ];
 

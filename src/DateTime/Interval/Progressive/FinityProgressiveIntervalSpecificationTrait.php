@@ -17,7 +17,7 @@ trait FinityProgressiveIntervalSpecificationTrait
             return new \DateTimeImmutable();
         }
 
-        $interval = $this->getIntervals()[$requestedPointNumber - 2] ?? null;
+        $interval = $this->getIntervals()[$requestedPointNumber - 1] ?? null;
 
         if ($interval !== null) {
             $seconds = floor($interval / 1000);
